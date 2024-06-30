@@ -1,9 +1,9 @@
-FROM debian:10-slim
+FROM debian:12-slim
 
 SHELL ["/bin/bash", "-c"]
 
 # can be 7.1 or later:
-ARG PHP_VERSION=7.4
+ARG PHP_VERSION=8.2
 # set to 1 to enable:
 ARG ENABLE_IGBINARY=0
 # set to 1 to enable:
