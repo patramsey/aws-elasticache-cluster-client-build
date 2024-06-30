@@ -27,6 +27,10 @@
         --build-arg ENABLE_JSON=1 \
         .
     ```
+    or
+   ```
+   docker build --output type=docker -t debianbuilder -f Dockerfile.debian .
+   ```
     **For Amazon Linux 2 / CentOS 7:** Build the library and the extension, enable optional features using the `build-arg`s listed above:
     ```
     docker build -f Dockerfile.amazonlinux2 --iidfile=/tmp/elasticache.docker \
@@ -34,7 +38,7 @@
         --build-arg ENABLE_JSON=1 \
         .
     ```
-5. Extract the freshly built PHP extension, optionally wrap into a tar file:
+6. Extract the freshly built PHP extension, optionally wrap into a tar file:
     ```
     docker run -ti --rm \
         -v "$(pwd)/dist":/dist `cat /tmp/elasticache.docker` \
@@ -42,4 +46,4 @@
             tar czvf /dist/AmazonElastiCacheClusterClient-PHP-64bit.tar.gz memcached.so'
     ```
     (This convoluted snippet stores the built extension in a .tar.gz file into the "dist" folder.)
-6. Clean up Docker images 😉
+7. Clean up Docker images 😉
