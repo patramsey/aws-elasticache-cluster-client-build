@@ -29,7 +29,7 @@
     ```
     or
    ```
-   docker build --output type=docker -t debianbuilder -f Dockerfile.debian .
+   docker buildx build --platform linux/amd64 --output type=docker -t debianbuilder -f Dockerfile.debian .
    ```
     **For Amazon Linux 2 / CentOS 7:** Build the library and the extension, enable optional features using the `build-arg`s listed above:
     ```
